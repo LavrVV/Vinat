@@ -1,4 +1,3 @@
-@font-face{font-family: OpenSans; src: url(fonts/OpenSans-Light.ttf);}
 .wrapper 
 {
 	font-family: OpenSans;
@@ -92,13 +91,13 @@ main
 
 .Aboutus
 {
-	margin-top: 500px;
+	padding-top: 500px;
 
 }
 
 .Partners
 {
-	margin-top: 500px;
+	padding-top: 500px;
 }
 
 
@@ -117,8 +116,9 @@ main
 
 footer
 {
+	margin-left: auto;
+	margin-right: auto;
 	text-align: center;
-	position: absolute;
 	margin-top: 1500px;
 	width: 1280px;
 	height: 400px;

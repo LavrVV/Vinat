@@ -5,13 +5,22 @@
   <meta charset="utf-8">
   <title>{% block title %}{% endblock title %}</title>
   <link rel="stylesheet" type="text/css" href="{% static "css/MainPage.css" %}">
+  
+  <style>
+    @font-face {
+        font-family: OpenSans;
+        src: local('OpenSans'),
+        url('{% static "fonts/OpenSans-Light.ttf" %}')  format("truetype");
+    }
+  </style>
+
   <link href="https://fonts.googleapis.com/css?family=Indie+Flower&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
  </head>
 	<body>
 		<nav class="MainMenu">
 				<section>
-				<div><a href="">Главная</a></div>
+				<div><a href="/">Главная</a></div>
 				<div><a href="pvd">ПВД</a></div>
 				<div><a href="ps">Полистирол</a></div>
 				<div><a href="pp">Полипропилен</a></div>
