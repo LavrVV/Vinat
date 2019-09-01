@@ -12,11 +12,27 @@ class Index(View):
 
     def post(self, request, *args, **kwargs):
         pass
-
+# полистерол
 class PS(View):
 
     def get(self, request, *args, **kwargs):
         return render(request, 'PS.html')
+
+    def post(self, request, *args, **kwargs):
+        pass
+# ПВД
+class PVD(View):
+
+    def get(self, request, *args, **kwargs):
+        return render(request, 'index.html')
+
+    def post(self, request, *args, **kwargs):
+        pass
+# полипропилен
+class PP(View):
+
+    def get(self, request, *args, **kwargs):
+        return render(request, 'index.html')
 
     def post(self, request, *args, **kwargs):
         pass
