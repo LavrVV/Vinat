@@ -157,6 +157,71 @@ footer ul li
 
 
 
+/*--TABLE--*/
+.adminTable
+{
+	width: 1050px;
+	margin-left: 115px;
+}
+.adminTable td
+{
+	border: 1px solid #fecf00;
+	border-left: 0px;
+	border-right: 0px;
+	border-top: 0px;
+	height: 80px;
+}
+.adminTable ul
+{
+	list-style: none;
+}
+.adminTable p
+{
+	width: 350px;
+	font-size: 16px;
+	margin-top: 5px;
+	vertical-align: bottom;
+}
+.adminTable li
+{
+	vertical-align: top;
+	width: 33%;
+	height: 40px;
+	display: inline-block;
+	font-size: 20px;
+	text-align: left;
+}
+
+.adminTable li:first-child
+{
+	float:left;
+}
+.adminTable li:last-child
+{
+	width: 200px;
+	height: 30px;
+	background: #757575;
+	margin-top: auto;
+	margin-bottom:auto;
+	text-align: center;
+	color:white;
+	cursor: pointer;
+}
+	.adminTable li:last-child:hover
+	{
+		background: #fecf00;
+		transition: background 0.5s;
+		color:black;
+		transition: color 0.5s;
+	}
+
+
+
+
+
+
+
+
 
 
 
