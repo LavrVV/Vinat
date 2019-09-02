@@ -23,4 +23,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.Index.as_view()),
     path('ps', views.PS.as_view()),
+    path('pvd', views.Index.as_view()),
+    path('pp', views.Index.as_view()),
 ]
