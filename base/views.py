@@ -4,7 +4,7 @@ from __future__ import unicode_literals
 from django.shortcuts import render
 from django.views import View
 
-# Create your views here.
+# Main.
 class Index(View):
 
     def get(self, request, *args, **kwargs):
@@ -12,8 +12,16 @@ class Index(View):
 
     def post(self, request, *args, **kwargs):
         pass
+
+class Product(View):
+    def get(self, request, *args, **kwargs):
+        return render(request, 'index.html')
+
+    def post(self, request, *args, **kwargs):
+        pass
+
 # полистерол
-class PS(View):
+class PS(Product):
 
     def get(self, request, *args, **kwargs):
         return render(request, 'PS.html')
@@ -21,7 +29,7 @@ class PS(View):
     def post(self, request, *args, **kwargs):
         pass
 # ПВД
-class PVD(View):
+class PVD(Product):
 
     def get(self, request, *args, **kwargs):
         return render(request, 'index.html')
@@ -29,7 +37,7 @@ class PVD(View):
     def post(self, request, *args, **kwargs):
         pass
 # полипропилен
-class PP(View):
+class PP(Product):
 
     def get(self, request, *args, **kwargs):
         return render(request, 'index.html')
