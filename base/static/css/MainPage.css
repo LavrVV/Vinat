@@ -111,7 +111,22 @@ main
 	line-height:30px;
 }
 
+.types
+{
+	position: absolute;
+	height: 600px;
+	width: 1280px;
+	margin-top: 500px;
+}
 
+.types p
+{
+	margin-top: 50px;
+	margin-left:auto; 
+	margin-right:auto;
+	font-size: 30px;
+	padding-bottom: 100px;
+}
 
 
 footer
@@ -217,7 +232,89 @@ footer ul li
 
 
 
-
+	.HideSite 
+	{
+		position: fixed;
+		width: 1280px;
+		height: 2000px;
+		z-index: 15;
+		background: rgba(0, 0, 0, 0.6);
+		display: none;
+	}
+	
+	.SignForm
+	{
+		position: absolute;
+		margin-top: 250px;
+		margin-left: 340px;
+		height: 270px;
+		width:600px;
+		background: white;
+		z-index: 16px;
+	}
+	
+	.back 
+	{
+		text-align: center;
+		line-height: 30px;
+		color: #fff;
+		font-size: 20px;
+		width: 90px;
+		height: 30px;
+		background: #757575;
+		text-decoration: none;
+	}
+		.back:hover
+		{
+			background: #fecf00;
+			transition: background linear 1s;
+			color:#000;
+			transition: color linear 1s;
+		}
+	
+	.send
+	{
+		margin-top: 30px;
+		margin-left: 150px;
+		text-decoration: none;
+		color: #fff;
+		font-size: 24px;
+		width: 300px;
+		height: 50px;
+		line-height: 50px;
+		background: #757575;
+		text-align:center;
+	}
+		.send:hover
+		{
+			background: #fecf00;
+			transition: background linear 1s;
+			color:#000;
+			transition: color linear 1s;
+		}
+	
+	.SignForm textarea
+	{
+		width: 350px;
+		height: 22px;
+		margin-left: 125px;
+		margin-top: 10px;
+		font-size: 20px;
+	}
+	.SignForm p
+	{
+		width: 350px;
+		font-size: 21px;
+		margin-left: 125px;
+		margin-top: 10px;
+		text-align: center;
+	}
+	.SignForm a
+	{
+		text-decoration:none;
+		color:#000;
+	}
+	
 
 
 
