@@ -293,7 +293,7 @@ footer ul li
 			transition: color linear 1s;
 		}
 	
-	.SignForm textarea
+	.SignForm input[type="text"]
 	{
 		width: 350px;
 		height: 22px;

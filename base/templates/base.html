@@ -37,18 +37,7 @@
 			</section>
 		</nav>		
 		<div class="wrapper">
-			<div id="Hider" class="HideSite">
-				<div class="SignForm">
-					<form>
-						<div class="back"> <a class="backa" href="#" onclick="closebox('Hider'); return false">Назад</a></div>
-						<p>Введите ваш номер телефона</p>
-						<textarea></textarea>
-						<p>или почту</p>
-						<textarea></textarea>
-						<div class="send"><a class="senda" href="#">Отправить</a></div>						
-					</form>
-				</div>
-			</div>
+			{% block section %}{% endblock section %}						
 			<div class="header">
 				<div class="logo">Место под логотип</div>
 				<div class="contact">

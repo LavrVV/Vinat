@@ -1,6 +1,19 @@
 {% extends "base.html" %}
 {% block title %}PS{% endblock title %}
-
+{% block section %}
+<div id="Hider" class="HideSite">
+	<div class="SignForm">
+		<form action="/ps" method="post">
+			<div class="back"> <a class="backa" href="#" onclick="closebox('Hider'); return false">Назад</a></div>
+			<p>Введите ваш номер телефона</p>
+			<input type="text" name="phone number">
+			<p>или почту</p>
+			<input type="text" name="email">
+			<div class="send"><a class="senda" href="#">Отправить</a></div>						
+		</form>
+	</div>
+</div>
+{% endblock section %}
 {% block main %}
 <div>
 	<h1>Полистерол</h1>
