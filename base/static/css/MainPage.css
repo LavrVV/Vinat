@@ -272,7 +272,7 @@ footer ul li
 			transition: color linear 1s;
 		}
 	
-	.send
+	.SignForm input[type=submit]
 	{
 		margin-top: 30px;
 		margin-left: 150px;
@@ -285,7 +285,7 @@ footer ul li
 		background: #757575;
 		text-align:center;
 	}
-		.send:hover
+		.SignForm input[type=submit]
 		{
 			background: #fecf00;
 			transition: background linear 1s;
