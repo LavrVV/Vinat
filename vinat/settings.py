@@ -123,3 +123,17 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "base/static"),
 ]
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+
+EMAIL_HOST = 'smtp.yandex.ru'
+
+EMAIL_PORT = 465
+
+EMAIL_USE_SSL = True
+
+EMAIL_HOST_USER = 'vinat.supp0t@yandex.ru'
+
+EMAIL_HOST_PASSWORD = 'vinat_sender_261'
+
+DEFAULT_FROM_EMAIL = 'vinat.supp0t@yandex.ru'

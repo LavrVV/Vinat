@@ -4,6 +4,7 @@
 <div id="Hider" class="HideSite">
 	<div class="SignForm">
 		<form action="/ps" method="post">
+			{% csrf_token %}
 			<div class="back"> <a class="backa" href="#" onclick="closebox('Hider'); return false">Назад</a></div>
 			<p>Введите ваш номер телефона</p>
 			<input type="text" name="phone number">
