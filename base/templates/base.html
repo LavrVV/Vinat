@@ -24,6 +24,13 @@
 			document.getElementById("Hider").style.display = 'none';
 			}
 		</script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+		<script>			
+			$('.cd signup').click(function() {
+			$('[type="hidden"]').val($(this).data('info'));
+			});
+		
+		</script>
 	</head>
 	<body>
 		<nav class="MainMenu">
