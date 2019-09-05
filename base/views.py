@@ -38,18 +38,18 @@ class PSView(ProductView):
     def post(self, request, *args, **kwargs):
         email = request.POST.get('email')
         phone = request.POST.get('phone number')
-        product_id = request.POST.get('id')
+        product_id = request.POST.get('product_id')
         name = request.POST.get('name')
         
-        send_mail(
-            'Subject',
-        'Email message',
-        'vinat.supp0t@yandex.ru',
-        ["lavr3x@rambler.ru"],
-        fail_silently=False,
-        )
+        #send_mail(
+        #    'Subject',
+        #'Email message',
+        #'vinat.supp0t@yandex.ru',
+        #["lavr3x@rambler.ru"],
+        #fail_silently=False,
+        #)
 
-
+        print(product_id)
         return render(request, self.page)
 
 class PVDView(ProductView):

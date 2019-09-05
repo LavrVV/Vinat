@@ -11,7 +11,7 @@
 			<p>или почту</p>
 			<input type="text" name="email">
 			<input type="submit" value="Отправить">	
-			<input type="hidden" value="">					
+			<input type="hidden" value="" name="product_id" id="form_product_id">					
 		</form>
 	</div>
 </div>
@@ -30,13 +30,13 @@
 				<ul>
 					
 					<li>ПВД марки ХХХ
-						<p>00CH1337</p>
+						<p class="product_id">00CH1337</p>
 					</li>
 					<li>Паспорт на товар
 						<p><a href="">PVD_Passport.pdf</a></p>
 					</li>
 					
-					<li><a class="cd signup" href="#" onclick="openbox('Hider'); return false" data-info="1">Оставить заявку</a>
+					<li><a class="cd_signup" href="#" onclick="openbox('Hider'); return false" data-info="1">Оставить заявку</a>
 					</li>		
 				</ul>
 			</td>
@@ -46,13 +46,13 @@
 				<ul>
 					
 					<li>ПВД марки ХХХ
-						<p>00CH1337</p>
+						<p class="product_id">00CH1337</p>
 					</li>
 					<li>Паспорт на товар
 						<p><a href="">PVD_Passport.pdf</a></p>
 					</li>
 					
-					<li><a class="cd signup" href="#" onclick="openbox('Hider'); return false" data-info="2">Оставить заявку</a>
+					<li><a class="cd_signup" href="#" onclick="openbox('Hider'); return false" data-info="2">Оставить заявку</a>
 					</li>		
 				</ul>
 			</td>
@@ -62,16 +62,22 @@
 				<ul>
 					
 					<li>ПВД марки ХХХ
-						<p>00CH1337</p>
+						<p class="product_id">00CH1337</p>
 					</li>
 					<li>Паспорт на товар
 						<p><a href="">PVD_Passport.pdf</a></p>
 					</li>	
-					<li><a class="cd signup" href="#" onclick="openbox('Hider'); return false" data-info="3">Оставить заявку</a>
+					<li><a class="cd_signup" href="#" onclick="openbox('Hider'); return false" data-info="3">Оставить заявку</a>
 					</li>		
 				</ul>
 			</td>
 		</tr>
-	</table>	
+	</table>
+	<script>			
+		$('.cd_signup').click(function() {
+			var value = $(this).parent().parent().find('.product_id').text();
+			$('#form_product_id').val(value);
+		});
+	</script>	
 </div>
 {% endblock main %}
