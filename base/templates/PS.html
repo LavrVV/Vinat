@@ -3,7 +3,7 @@
 {% block section %}
 <div id="Hider" class="HideSite">
 	<div class="SignForm">
-		<form action="/ps" method="post">
+		<form action="/ps" acync method="post">
 			{% csrf_token %}
 			<div class="back"> <a class="backa" href="#" onclick="closebox('Hider'); return false">Назад</a></div>
 			<p>Введите ваш номер телефона</p>
@@ -25,15 +25,16 @@
 <div class="types">
 	<p>Виды товара</p>
 	<table class="adminTable">
+	{% for type in types %}
 		<tr>
 			<td>
 				<ul>
 					
 					<li>ПВД марки ХХХ
-						<p class="product_id">00CH1337</p>
+						<p class="product_id">{{type.name}}</p>
 					</li>
 					<li>Паспорт на товар
-						<p><a href="">PVD_Passport.pdf</a></p>
+						<p><a href="">{{type.product}}</a></p>
 					</li>
 					
 					<li><a class="cd_signup" href="#" onclick="openbox('Hider'); return false" data-info="1">Оставить заявку</a>
@@ -41,37 +42,7 @@
 				</ul>
 			</td>
 		</tr>
-		<tr>
-			<td>
-				<ul>
-					
-					<li>ПВД марки ХХХ
-						<p class="product_id">00CH1337</p>
-					</li>
-					<li>Паспорт на товар
-						<p><a href="">PVD_Passport.pdf</a></p>
-					</li>
-					
-					<li><a class="cd_signup" href="#" onclick="openbox('Hider'); return false" data-info="2">Оставить заявку</a>
-					</li>		
-				</ul>
-			</td>
-		</tr>
-		<tr>
-			<td>
-				<ul>
-					
-					<li>ПВД марки ХХХ
-						<p class="product_id">00CH1337</p>
-					</li>
-					<li>Паспорт на товар
-						<p><a href="">PVD_Passport.pdf</a></p>
-					</li>	
-					<li><a class="cd_signup" href="#" onclick="openbox('Hider'); return false" data-info="3">Оставить заявку</a>
-					</li>		
-				</ul>
-			</td>
-		</tr>
+	{% endfor %}		
 	</table>
 	<script>			
 		$('.cd_signup').click(function() {
