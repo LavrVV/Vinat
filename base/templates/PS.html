@@ -25,16 +25,16 @@
 <div class="types">
 	<p>Виды товара</p>
 	<table class="adminTable">
-	{% for type in types %}
+	{% for product in products %}
 		<tr>
 			<td>
 				<ul>
 					
 					<li>ПВД марки ХХХ
-						<p class="product_id">{{type.name}}</p>
+						<p class="product_id">{{product.name}}</p>
 					</li>
 					<li>Паспорт на товар
-						<p><a href="">{{type.product}}</a></p>
+						<p><a href="">{{product.passport}}</a></p>
 					</li>
 					
 					<li><a class="cd_signup" href="#" onclick="openbox('Hider'); return false" data-info="1">Оставить заявку</a>
