@@ -13,6 +13,9 @@ class Product(models.Model):
     passport = models.FileField(upload_to='passports')
     name = models.TextField()
 
+    def __str__(self):
+        return self.name
+
 class PVD(Product):
     pass
 
@@ -26,6 +29,9 @@ class Partner(models.Model):
     name = models.TextField()
     logo = models.FileField(upload_to='logos')
     link = models.URLField()
+    
+    def __str__(self):
+        return self.name
 
 class Company:
     '''singleton uses to represent company contacts as json object'''
