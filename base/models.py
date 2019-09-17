@@ -10,7 +10,7 @@ from vinat.settings import BASE_DIR
 
 # Create your models here.
 class Product(models.Model):
-    passport = models.FilePathField()
+    passport = models.FileField(upload_to='passports')
     name = models.TextField()
 
 class PVD(Product):
@@ -24,7 +24,7 @@ class PP(Product):
 
 class Partner(models.Model):
     name = models.TextField()
-    logo = models.FilePathField()
+    logo = models.FileField(upload_to='logos')
     link = models.URLField()
 
 class Company:

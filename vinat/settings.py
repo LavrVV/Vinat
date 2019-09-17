@@ -148,3 +148,7 @@ EMAIL_HOST_USER = 'vinat.supp0t@yandex.ru'
 EMAIL_HOST_PASSWORD = 'vinat_sender_261'
 
 DEFAULT_FROM_EMAIL = 'vinat.supp0t@yandex.ru'
+
+MEDIA_ROOT = os.path.join(BASE_DIR, "base/media")
+
+MEDIA_URL = '/media/'

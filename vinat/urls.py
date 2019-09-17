@@ -16,6 +16,8 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 from django.urls import path
+from django.conf.urls.static import static
+from vinat import settings
 
 from base import views
 
@@ -26,3 +28,5 @@ urlpatterns = [
     path('pvd', views.PVDView.as_view()),
     path('pp', views.PPView.as_view()),
 ]
+
+urlpatterns +=static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
