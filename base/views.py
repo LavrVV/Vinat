@@ -9,6 +9,8 @@ from django.core.mail import EmailMessage
 from base import models
 from vinat.settings import DEFAULT_FROM_EMAIL
 
+import re
+
 class MainView(View):
     """Main page handler (/)"""
     def get(self, request, *args, **kwargs):
@@ -27,11 +29,37 @@ class ProductView(View):
         return render(request, self.page)
 
     def post(self, request, *args, **kwargs):
-        email = request.POST.get('email')
-        phone = request.POST.get('phone number')
-        product_id = request.POST.get('product_id')
-        name = request.POST.get('name')
-        #request.POST.
+        keys = ['email', 'phone number', 'product_id', 'name']
+        #request.is_secure()
+        for key, value in request.POST.items():
+            if key in keys:
+                if key == keys[0]:
+                    email = value
+                    EMAIL_REGEX = re.compile(r"[^@\s]+@[^@\s]+(?:\.[^@\s]+)+")
+                    if not EMAIL_REGEX.match(email):
+                        print(email)
+                        #wrong email
+                elif key == keys[1]:
+                    phone = value
+                    if len(phone) == 12 and phone[0] == '+':
+                        if not phone[1:].isdigit():
+                            print(phone)
+                            #wrong phone
+                    elif len(phone) == 11:
+                        if not phone.isdigit():
+                            print(phone)
+                            #wrong phone
+                    else:
+                        print(phone)
+                        #wrong phone
+                elif key == keys[2]:
+                    product_id = value
+                elif key == keys[3]:
+                    name = value
+            else:
+                #some unexpexted key
+                print(key)
+                return self.get(request)
         self.send_demand(name, email, phone, product_id)
 
         return self.get(request)
@@ -71,7 +99,7 @@ class PVDView(ProductView):
 
     """PVD page handler (/pvd)"""
     def get(self, request, *args, **kwargs):
-        summary = 'Компания предлагает купить гранулы полистирола оптом и в розницу от ведущих российских производителей. Мы гарантируем высокое качество продукции, соответствующее современным стандартам и нормам, а также выгодные условия поставок и индивидуальные условия обслуживания.'
+        summary = 'Компания предлагает купить гранулы ПВД оптом и в розницу от ведущих российских производителей. Мы гарантируем высокое качество продукции, соответствующее современным стандартам и нормам, а также выгодные условия поставок и индивидуальные условия обслуживания.'
         data = {'products': models.PVD.objects.all(),
                 'summary' : summary,
                 'header' : 'ПВД',
@@ -87,7 +115,7 @@ class PPView(ProductView):
 
     """polypropylene page handler (/pp)"""
     def get(self, request, *args, **kwargs):
-        summary = 'Компания предлагает купить гранулы полистирола оптом и в розницу от ведущих российских производителей. Мы гарантируем высокое качество продукции, соответствующее современным стандартам и нормам, а также выгодные условия поставок и индивидуальные условия обслуживания.'
+        summary = 'Компания предлагает купить гранулы полипропилена оптом и в розницу от ведущих российских производителей. Мы гарантируем высокое качество продукции, соответствующее современным стандартам и нормам, а также выгодные условия поставок и индивидуальные условия обслуживания.'
         data = {'products': models.PP.objects.all(),
                 'summary' : summary,
                 'header' : 'Полипропилен',

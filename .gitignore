@@ -109,3 +109,6 @@ base/data/PG_11_201809051
 # settings
 
 settings.py
+
+# vscode
+.vscode
