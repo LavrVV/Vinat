@@ -6,14 +6,15 @@ from django.views import View
 
 from django.core.mail import EmailMessage
 
-from base import models
-from vinat.settings import DEFAULT_FROM_EMAIL
+from apps.main import models
+from vinat.settings import EMAIL_HOST_USER
 
 import re
 
 class MainView(View):
     """Main page handler (/)"""
     def get(self, request, *args, **kwargs):
+        print('main')
         return render(request, 'main.html')
 
     def post(self, request, *args, **kwargs):
@@ -72,7 +73,7 @@ class ProductView(View):
         text = ('Пользователь представившийся как \'{0}\' оставил заявку на покупку {4} марки {1}.' + 
         '\n Его контакты:\n\tТелефон: {2}\n\temail: {3}').format(name, product_id, demander_phone, demander_email, self.product_name)
         com = models.Company()
-        mail = EmailMessage('Заявка на покупку {0} марки {1}'.format(self.product_name, product_id), text, DEFAULT_FROM_EMAIL, com.email())
+        mail = EmailMessage('Заявка на покупку {0} марки {1}'.format(self.product_name, product_id), text, EMAIL_HOST_USER, com.email())
         #mail.send()
     
 class PSView(ProductView):
@@ -83,11 +84,12 @@ class PSView(ProductView):
 
     def get(self, request, *args, **kwargs):
         summary = 'Компания предлагает купить гранулы полистирола оптом и в розницу от ведущих российских производителей. Мы гарантируем высокое качество продукции, соответствующее современным стандартам и нормам, а также выгодные условия поставок и индивидуальные условия обслуживания.'
-        data = {'products': models.PS.objects.all(),
-                'summary' : summary,
-                'header' : 'Полистерол',
-                'title' : 'PS'
-            }
+        data = {
+            'products': models.PS.objects.all(),
+            'summary' : summary,
+            'header' : 'Полистерол',
+            'title' : 'PS'
+        }
         return render(request, self.page, context=data)
 
         
@@ -100,11 +102,12 @@ class PVDView(ProductView):
     """PVD page handler (/pvd)"""
     def get(self, request, *args, **kwargs):
         summary = 'Компания предлагает купить гранулы ПВД оптом и в розницу от ведущих российских производителей. Мы гарантируем высокое качество продукции, соответствующее современным стандартам и нормам, а также выгодные условия поставок и индивидуальные условия обслуживания.'
-        data = {'products': models.PVD.objects.all(),
-                'summary' : summary,
-                'header' : 'ПВД',
-                'title' : 'PVD'
-            }
+        data = {
+            'products': models.PVD.objects.all(),
+            'summary' : summary,
+            'header' : 'ПВД',
+            'title' : 'PVD'
+        }
         return render(request, self.page, context=data)
 
 
@@ -116,9 +119,10 @@ class PPView(ProductView):
     """polypropylene page handler (/pp)"""
     def get(self, request, *args, **kwargs):
         summary = 'Компания предлагает купить гранулы полипропилена оптом и в розницу от ведущих российских производителей. Мы гарантируем высокое качество продукции, соответствующее современным стандартам и нормам, а также выгодные условия поставок и индивидуальные условия обслуживания.'
-        data = {'products': models.PP.objects.all(),
-                'summary' : summary,
-                'header' : 'Полипропилен',
-                'title' : 'PP'
-            }
+        data = {
+            'products': models.PP.objects.all(),
+            'summary' : summary,
+            'header' : 'Полипропилен',
+            'title' : 'PP'
+        }
         return render(request, self.page, context=data)

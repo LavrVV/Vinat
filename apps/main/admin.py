@@ -2,7 +2,7 @@
 from __future__ import unicode_literals
 
 from django.contrib import admin
-from base import models
+from apps.main import models
 
 admin.site.register(models.Partner)
 admin.site.register(models.PP)

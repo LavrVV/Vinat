@@ -6,7 +6,6 @@ from django.db import models
 import os
 
 import json
-from vinat.settings import BASE_DIR
 
 # Create your models here.
 class Product(models.Model):
@@ -36,7 +35,6 @@ class Partner(models.Model):
 class Company:
     '''singleton uses to represent company contacts as json object'''
     def __init__(self):
-        dir = BASE_DIR
         module_dir = os.path.dirname(__file__)
         with open(os.path.join(module_dir, 'data/company.json'), 'r') as com_file:
             data = json.load(com_file)
