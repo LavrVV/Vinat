@@ -17,13 +17,13 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from django.conf.urls.static import static
-from apps.main import views
+from apps.main.views import main, pp, ps, pvd, pp
 from vinat import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.MainView.as_view()),
-    path('ps', views.PSView.as_view()),
-    path('pvd', views.PVDView.as_view()),
-    path('pp', views.PPView.as_view()),
+    path('', main.MainView.as_view()),
+    path('ps', ps.PSView.as_view()),
+    path('pvd', pvd.PVDView.as_view()),
+    path('pp', pp.PPView.as_view()),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

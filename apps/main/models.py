@@ -1,13 +1,9 @@
 # -*- coding: utf-8 -*-
-from __future__ import unicode_literals
+import os
+import json
 
 from django.db import models
 
-import os
-
-import json
-
-# Create your models here.
 class Product(models.Model):
     passport = models.FileField(upload_to='passports')
     name = models.TextField()
