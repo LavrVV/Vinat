@@ -2,6 +2,7 @@
 import re
 
 from django.http.request import HttpRequest
+from django.http.response import HttpResponse
 from django.shortcuts import render
 from django.views import View
 from django.core.mail import EmailMessage
@@ -17,8 +18,8 @@ class ProductPOSTRequest(BaseModel):
     product_id: str | None = None
 
     @field_validator('phone')
-    def check_age(cls, value):
-        PHONE_REGEX = re.compile(r'[(+7)8]\(?\d{3}\)?\d{3}[\-\w]?\d{2}[\-\w]?\d{2}')
+    def check_phone(cls, value):
+        PHONE_REGEX = re.compile(r'^[(+7)8]\w?\(?\d{3}\)?\w?\d{3}[\-\w]?\d{2}[\-\w]?\d{2}$')
         matched = PHONE_REGEX.match(value)
         if not matched:
             raise ValueError('invalid phone')
@@ -31,11 +32,10 @@ class ProductView(View):
     page = 'main.html'
     product_name = 'нефтепродукт'
 
-    def get(self, request: HttpRequest, *args, **kwargs):
+    def get(self, request: HttpRequest, *args, **kwargs) -> HttpResponse:
         return render(request, self.page)
 
-    def post(self, request: HttpRequest, *args, **kwargs):
-        keys = ['email', 'phone', 'product_id', 'name']
+    def post(self, request: HttpRequest, *args, **kwargs) -> HttpResponse:
         #request.is_secure()
         request_data = ProductPOSTRequest(**request.POST)
         self.send_demand(request_data)
